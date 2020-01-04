@@ -1,2 +1,2 @@
 all:
-	g++ -g -o exe main.cpp -lGL -lGLU -lglut
+	g++ -g -o exe main.cpp Shader.cpp -lGL -lGLU -lglut -lGLEW
