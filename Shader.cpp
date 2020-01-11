@@ -10,6 +10,13 @@ Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 	CreateShaderProgram(vertexCode, fragmentCode);
 }	
 
+void Shader::Init(const GLchar* vertexPath, const GLchar* fragmentPath)
+{
+	std::string vertexCode = ReadShaderFromFile(vertexPath);
+	std::string fragmentCode = ReadShaderFromFile(fragmentPath);
+	CreateShaderProgram(vertexCode, fragmentCode);
+}	
+
 std::string Shader::ReadShaderFromFile(const std::string& filePath)
 {
 	std::string shaderCode;

@@ -9,6 +9,7 @@ public:
 	Shader() = default;
 	Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
 	void Use();
+	void Init(const GLchar* vertexPath, const GLchar* fragmentPath);
 	std::string ReadShaderFromFile(const std::string& filePath); 
 	void CreateShaderProgram(const std::string& strShaderCode,
 			const std::string& strFragmentCode);
