@@ -30,7 +30,8 @@ bool ResourceMgr::LoadResource(const std::string& name)
 	}
 	glGenerateMipmap(GL_TEXTURE_2D);
 	stbi_image_free(data);
-	m_Textures.insert(std::make_pair(name, textureID));
+	PictureDef picDef {textureID, width, height};
+	m_Textures.insert(std::make_pair(name, picDef));
 	return true;
 }
 
@@ -38,7 +39,16 @@ unsigned int ResourceMgr::GetResourceID(const std::string& name)
 {
 	if (m_Textures.find(name) != m_Textures.end())
 	{
-		return m_Textures.find(name)->second;	
+		return m_Textures.find(name)->second.ID;	
 	}
 	return 0;
+}
+
+PictureDef ResourceMgr::GetPicDef(const std::string& name)
+{
+	if (m_Textures.find(name) != m_Textures.end())
+	{
+		return m_Textures.find(name)->second;	
+	}
+	return PictureDef();
 }

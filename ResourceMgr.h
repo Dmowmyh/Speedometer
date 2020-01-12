@@ -2,6 +2,7 @@
 #define RESOURCEMGR_H
 #include <map>
 #include <string>
+#include "PictureDef.h"
 
 class ResourceMgr
 {
@@ -10,8 +11,9 @@ public:
 	~ResourceMgr() = default;
 	bool LoadResource(const std::string& name); 
 	unsigned int GetResourceID(const std::string& name);
+	PictureDef GetPicDef(const std::string& name);
 private:
-	std::map<std::string, unsigned int> m_Textures;
+	std::map<std::string, PictureDef> m_Textures;
 	unsigned int m_ResourcesCount = 0;
 };
 
